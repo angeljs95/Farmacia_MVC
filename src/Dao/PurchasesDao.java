@@ -91,9 +91,11 @@ public class PurchasesDao {
     //----------listar todas las  compras--------------
     
       public List listAllPurchases(){
-        List<Purchases> listPurchase = new ArrayList();
-        String query = "SELECT pu.*, su.name AS supplier_name FROM purchases pu, suppliers su "
-                + "WHERE pu.supplier_id = su.id ORDER BY pu.id ASC";
+        List<Purchases> listAllPurchases = new ArrayList();
+        //String query = "SELECT pu.*, su.name AS supplier_name FROM purchases pu, suppliers su "
+         //       + "WHERE pu.supplier_id = su.id ORDER BY pu.id ASC";
+         String query= "SELECT pu.id, su.name AS supplier_name, pu.total, pu.created FROM purchases pu, suppliers su"
+                 + " WHERE pu.supplier_id = su.id ORDER BY pu.id ASC";
         
         try{
             connection = connectionDB.getConnection();
@@ -106,12 +108,12 @@ public class PurchasesDao {
                 purchase.setSupplier_name_product(result.getString("supplier_name"));
                 purchase.setTotal(result.getDouble("total"));
                 purchase.setCreated(result.getString("created"));
-                listPurchase.add(purchase);
+                listAllPurchases.add(purchase);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-        return listPurchase;
+        return listAllPurchases;
     }
   //-----------------Listar compras para imprimir la factura---------------
       //Listar compras para imprimir factura

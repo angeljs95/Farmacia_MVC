@@ -47,7 +47,7 @@ public class SettingControllers implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         if(e.getSource() ==  viewSystem.jLabel_Settings ){
-            viewSystem.jTabbed_Products.setSelectedIndex(7);
+            viewSystem.jTabbed_Products.setSelectedIndex(6);
         }
    }
 

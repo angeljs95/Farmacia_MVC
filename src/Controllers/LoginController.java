@@ -32,7 +32,7 @@ public class LoginController implements ActionListener {
         String pass = String.valueOf(loginView.txt_Password.getPassword());
 
         if (e.getSource() == loginView.btn_Enter) {
-            //Validar que los campos no esten vacios
+            //Validamos que los campos no esten vacios
             if (!user.equals("") || !pass.equals("")) {
                 employee = employeeDao.loginQuery(user, pass);
                 //Verificar la existencia del usuario

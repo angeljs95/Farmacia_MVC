@@ -40,6 +40,7 @@ public class EmployeeController implements  ActionListener, MouseListener, KeyLi
         this.view.txt_employees_search.addKeyListener(this);
         this.view.btn_profile_update.addActionListener(this);
         this.view.jTable_employee.addMouseListener(this);
+        this.view.jLabel_Settings.addMouseListener(this);
         
     }
     

@@ -155,15 +155,15 @@ public class CategoriesControllers implements ActionListener, MouseListener, Key
             view.btn_categories_register.setEnabled(false);
         }else if(e.getSource() == view.jLabel_categories){
             if(rol.equals("Administrador")){
-                view.jTabbed_Products.setSelectedIndex(8);
+                view.jTabbed_Products.setSelectedIndex(7);
                 cleanTable();
-                cleanFields();
+                //cleanFields();
                 listAllCategories();
-            }else{
-                view.jTabbed_Products.setEnabledAt(8, false);
+            }/*else{
+                view.jTabbed_Products.setEnabledAt(7, false);
                 view.jLabel_categories.setEnabled(false);
                 JOptionPane.showMessageDialog(null, "You do not have administrator privileges to access this view");
-            }
+            }*/
         }
     
     }

@@ -1,6 +1,7 @@
 
 package Controllers;
 
+import static Dao.EmployeesDao.rol_user;
 import Dao.PurchasesDao;
 import Entitys.Purchases;
 import Views.SystemView;
@@ -20,6 +21,18 @@ public class ReportController implements  ActionListener, MouseListener, KeyList
     private SystemView view;
     private PurchasesDao purchasesDao;
     private Purchases purchases;
+    String rol= rol_user;
+
+    public ReportController(SystemView view, PurchasesDao purchasesDao, Purchases purchases) {
+        this.view = view;
+        this.purchasesDao = purchasesDao;
+        this.purchases = purchases;
+        this.view.jLabel_Reports.addMouseListener(this);
+        this.view.jTable_reports_purchase.addMouseListener(this);
+        this.view.jTable_reports_sale.addMouseListener(this);
+    }
+    
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -27,6 +40,12 @@ public class ReportController implements  ActionListener, MouseListener, KeyList
 
     @Override
     public void mouseClicked(MouseEvent e) {
+      /*  if(e.getSource()== view.jLabel_Reports){
+             if (rol.equals("Administrador")){
+            view.jTabbed_Products.setSelectedIndex(8);
+           
+             }
+        }*/
     }
 
     @Override

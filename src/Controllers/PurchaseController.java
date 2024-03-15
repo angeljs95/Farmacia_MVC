@@ -52,6 +52,7 @@ public class PurchaseController implements  ActionListener, MouseListener, KeyLi
         this.view.txt_purchase_price.addKeyListener(this);
         this.view.jLabel_Reports.addMouseListener(this);
         this.view.jLabel_Purchase.addMouseListener(this);
+        this.view.jTable_reports_purchase.addMouseListener(this);
     }
     
     
@@ -184,7 +185,7 @@ public class PurchaseController implements  ActionListener, MouseListener, KeyLi
                 JOptionPane.showMessageDialog(null, "You do not have administrator privileges to enter this view");
             }
         } else if (e.getSource() == view.jLabel_Reports) {
-            view.jTabbed_Products.setSelectedIndex(6);
+            view.jTabbed_Products.setSelectedIndex(8);
             cleanTable();
             cleanFieldsPurchases();
             listAllPurchases();
