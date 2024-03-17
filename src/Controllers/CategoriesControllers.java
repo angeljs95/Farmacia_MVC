@@ -11,7 +11,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.HashSet;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -153,7 +152,7 @@ public class CategoriesControllers implements ActionListener, MouseListener, Key
             view.txt_categories_id.setText(view.jTable_categories.getValueAt(row, 0).toString());
             view.txt_categories_name.setText(view.jTable_categories.getValueAt(row, 1).toString());
             view.btn_categories_register.setEnabled(false);
-        }else if(e.getSource() == view.jLabel_categories){
+        }else if(e.getSource() == view.jLabel_Category){
             if(rol.equals("Administrador")){
                 view.jTabbed_Products.setSelectedIndex(7);
                 cleanTable();

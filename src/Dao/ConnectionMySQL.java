@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class ConnectionMySQL {
     
-    private String database_Name= "pharmacy_database";
+    private String database_Name= "phamacy_db";
     private String user= "root" ;
     private String password="root";
     private String url= "jdbc:mysql://localhost:3306/" + database_Name;

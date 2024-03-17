@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -153,7 +154,7 @@ public class ProductsDao {
     
     //-----------------------Buscar producto por código-------------------
     public Products searchCode(int code){
-        String query = "SELECT pro.id, pro.name FROM products pro WHERE pro.code = ?";
+        String query = "SELECT * FROM products pro WHERE pro.code = ?";
         Products product = new Products();
     
         try{
@@ -165,6 +166,9 @@ public class ProductsDao {
             if(result.next()){
                 product.setId(result.getInt("id"));
                 product.setName(result.getString("name"));
+                product.setUnitPrice(result.getDouble("unit_price"));
+                product.setProductQuantity(result.getInt("product_quantity"));
+                
             }
             
         }catch(SQLException e){

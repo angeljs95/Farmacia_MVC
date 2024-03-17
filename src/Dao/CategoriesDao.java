@@ -36,7 +36,7 @@ public class CategoriesDao {
             return true;
             
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Error registering category");
+            JOptionPane.showMessageDialog(null, "Error registering category "+ e);
             return false;
         }
     }

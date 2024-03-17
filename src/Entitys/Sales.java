@@ -12,7 +12,6 @@ public class Sales {
     private double total;
     private int customer_id;
     private int employee_id;
-    private String created;
     private String sale_employee_name;
     private String sale_customer_name;
 
@@ -23,7 +22,6 @@ public class Sales {
         this.total = total;
         this.customer_id = customer_id;
         this.employee_id = employee_id;
-        this.created= created;
         this.sale_employee_name= sale_employee_name;
         this.sale_customer_name=sale_customer_name;
         
@@ -55,14 +53,6 @@ public class Sales {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getCreated() {
-        return created;
-    }
-
-    public void setCreated(String created) {
-        this.created = created;
     }
 
     public String getSale_date() {

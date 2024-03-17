@@ -7,6 +7,7 @@ import Controllers.SupplierController;
 import Controllers.CategoriesControllers;
 import Controllers.ProductController;
 import Controllers.PurchaseController;
+import Controllers.SaleController;
 import Dao.CategoriesDao;
 import Dao.CustomersDao;
 import Dao.EmployeesDao;
@@ -14,12 +15,14 @@ import static Dao.EmployeesDao.name_user;
 import static Dao.EmployeesDao.rol_user;
 import Dao.ProductsDao;
 import Dao.PurchasesDao;
+import Dao.SalesDao;
 import Dao.SuppliersDao;
 import Entitys.Categories;
 import Entitys.Customers;
 import Entitys.Employees;
 import Entitys.Products;
 import Entitys.Purchases;
+import Entitys.Sales;
 import Entitys.Suppliers;
 
 /**
@@ -46,6 +49,9 @@ public class SystemView extends javax.swing.JFrame {
     //Compras
     Purchases purchase = new Purchases();
     PurchasesDao purchaseDao = new PurchasesDao();
+    // Ventas
+    Sales sale= new Sales();
+    SalesDao salesDao= new SalesDao();
     
   
     public SystemView() {
@@ -83,6 +89,10 @@ public class SystemView extends javax.swing.JFrame {
         
         //Controlador de compras
         PurchaseController purchase_section = new PurchaseController(this,purchase, purchaseDao);
+        
+        //Controlador de Ventas
+        SaleController sale_section= new SaleController(this, sale,salesDao);
+      //  sale_section.listAllSales();
     
     }
     public String titleInterface() {
@@ -542,7 +552,13 @@ public class SystemView extends javax.swing.JFrame {
             }
         });
         jPanel3.add(btn_Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 35, -1, 30));
+
+        label_name_employee.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_name_employee.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.add(label_name_employee, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, 100, 20));
+
+        label_name_rol.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_name_rol.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.add(label_name_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 60, 100, 20));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 1010, 100));
@@ -864,7 +880,6 @@ public class SystemView extends javax.swing.JFrame {
         btn_new_sale.setText("New");
 
         txt_sale_stock.setEditable(false);
-        txt_sale_stock.setEnabled(false);
 
         txt_sale_subtotal.setEditable(false);
 
@@ -903,6 +918,8 @@ public class SystemView extends javax.swing.JFrame {
 
         jLabel61.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel61.setText("Total:");
+
+        txt_sale_totalToPay.setEditable(false);
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
@@ -1015,7 +1032,7 @@ public class SystemView extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, true, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
